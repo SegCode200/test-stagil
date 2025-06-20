@@ -7,3 +7,4 @@ npm-debug.log
 yarn-error.log
 stagilstore-store-firebase-adminsdk-fbsvc-*.json
 stagilstore-user-firebase-adminsdk-fbsvc-*.json
+.env
