@@ -25,6 +25,8 @@ const fcmTokens = {
 
 const userEnv = JSON.parse(process.env.USER_GOOGLE_APPLICATION_CREDENTIALS)
 const storeEnv = JSON.parse(process.env.STORE_GOOGLE_APPLICATION_CREDENTIALS)
+userEnv.private_key = userEnv.private_key.replace(/\\n/g, '\n');
+storeEnv.private_key = storeEnv.private_key.replace(/\\n/g, '\n');
 const userApp = admin.initializeApp(
   {
     credential: admin.credential.cert(userEnv),
