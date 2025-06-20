@@ -34,7 +34,7 @@ const userApp = admin.initializeApp(
 
 const storeApp = admin.initializeApp(
   {
-    credential: admin.credential.cert(require(storeEnv)),
+    credential: admin.credential.cert(storeEnv),
   },
   "storeApp"
 );
