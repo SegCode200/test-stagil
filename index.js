@@ -4,6 +4,8 @@ const { Server } = require("socket.io");
 // const ngrok = require("ngrok");
 const admin = require("firebase-admin");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv")
+dotenv.config()
 
 const app = express();
 const server = http.createServer(app);
@@ -23,14 +25,14 @@ const fcmTokens = {
 
 const userApp = admin.initializeApp(
   {
-    credential: admin.credential.cert(require("./stagilstore-user-firebase-adminsdk-fbsvc-9699871c4d.json")),
+    credential: admin.credential.cert(require(process.env.USER_GOOGLE_APPLICATION_CREDENTIALS)),
   },
   "userApp"
 );
 
 const storeApp = admin.initializeApp(
   {
-    credential: admin.credential.cert(require("./stagilstore-store-firebase-adminsdk-fbsvc-74a8728e9d.json")),
+    credential: admin.credential.cert(require(process.env.STORE_GOOGLE_APPLICATION_CREDENTIALS)),
   },
   "storeApp"
 );
