@@ -1,7 +1,7 @@
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
-const ngrok = require("ngrok");
+// const ngrok = require("ngrok");
 const admin = require("firebase-admin");
 const bodyParser = require("body-parser");
 
@@ -140,11 +140,11 @@ io.on("connection", (socket) => {
 
 server.listen(5000, () => console.log("Signaling server running on port 5000"));
 
-ngrok
-  .connect(5000)
-  .then((tunnel) => {
-    console.log("Ngrok tunnel is connected to ", tunnel);
-  })
-  .catch((error) => {
-    console.log("Error ocurred", error);
-  });
+// ngrok
+//   .connect(5000)
+//   .then((tunnel) => {
+//     console.log("Ngrok tunnel is connected to ", tunnel);
+//   })
+//   .catch((error) => {
+//     console.log("Error ocurred", error);
+//   });
