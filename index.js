@@ -23,16 +23,18 @@ const fcmTokens = {
   stores: {},
 };
 
+const userEnv = JSON.parse(process.env.USER_GOOGLE_APPLICATION_CREDENTIALS)
+const storeEnv = JSON.parse(process.env.STORE_GOOGLE_APPLICATION_CREDENTIALS)
 const userApp = admin.initializeApp(
   {
-    credential: admin.credential.cert(require(process.env.USER_GOOGLE_APPLICATION_CREDENTIALS)),
+    credential: admin.credential.cert(userEnv),
   },
   "userApp"
 );
 
 const storeApp = admin.initializeApp(
   {
-    credential: admin.credential.cert(require(process.env.STORE_GOOGLE_APPLICATION_CREDENTIALS)),
+    credential: admin.credential.cert(require(storeEnv)),
   },
   "storeApp"
 );
